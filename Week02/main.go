@@ -26,7 +26,7 @@ func (dud DbUserDao) GetUser(uid int64) (user User, err error) {
     } else {
         //mock db err
         err := sql.ErrNoRows
-        //wrap err, save caller stack info
+        //since this is err from standard lib, wrap err, save caller stack info
         return User{}, xerrors.Wrapf(err, "dao query err")
     }
 }
